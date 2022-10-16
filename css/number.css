@@ -1,0 +1,29 @@
+.number{
+    background-image: url(../images/background/background2.webp);
+    height: 300px;
+    position: relative;
+    background-size: cover;/*من اجل ان تملأ الصورة الحيز الموجودة فيه*/
+    background-attachment: fixed;/*لكي نشعر ان الصورةثابتة معنا اثناء تحريك الشاشة للاسفل بالماوس*/
+   }
+
+   
+
+   .number-item{
+    width: 25%;
+    float: left;
+    text-align: center;
+    color: var(--whitecolor);
+    
+    
+   }
+
+   .number-item .icon{
+    color: var(--maincolor);
+    margin-bottom: 15px;
+   }
+
+   .number-item-title{
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 15px;
+   }

@@ -1,0 +1,919 @@
+/*
+  1-common styles
+  2-general styles
+  3-section:
+            3.0- header section
+            3.1-home section
+            3.2-about section
+            3.3-portfolio section
+            3.4-service section
+            3.5 price section
+            3.6-team section
+            3.7-blog section
+            3.8-contact section
+            3.9-footer section
+
+*/
+
+
+
+/*1- common styles:*/
+/*
+    -continar
+    -overlay
+   -opacity hover
+   -general section header
+   -common padding
+   -hover effect1(left to right)
+   -hover effect(top to bottum)*/
+
+   .overlay{
+    position: absolute;
+    width: 100%; /*لكي ياخد كامل عرض الاب*/
+    height: 100%;/*لكي ياخد كامل ارتفاع الاب*/
+    top: 0;
+    left: 0;
+    background-color:rgba(0, 0, 0, 0.7);
+}
+
+.hover-opacity{
+    transition: opacity 0.5s;
+}
+    
+.hover-opacity:hover{
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.ltr-effect , .ttb-effect{
+    position: relative;
+}
+
+.ltr-effect::after , .ttb-effect::after{
+position: absolute;
+content: "";
+background: #333;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+z-index: -1;
+}
+
+.ltr-effect::after{
+    width: 0%;
+    transition: width 0.5s;
+
+}
+.ltr-effect:hover::after{
+    width: 100%;    
+}
+
+.ttb-effect::after{
+height: 0%;
+transition: height 0.5s;
+}
+.ttb-effect:hover::after{
+    height: 100%;
+    
+    
+}
+
+    
+
+/* 2- general styles*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*css3*/
+   }
+
+   .container{width: 80%;
+                margin: auto;}
+
+   /* font family*/
+   body{
+    font-family: 'Varela Round', sans-serif;
+   }
+
+   :root{
+    --maincolor:#6195ff;
+    --graycolor:#999;
+    
+    --whitecolor:#fff;
+   }
+
+   h1,h2,h3,h4,h5,h6{
+    font-family: montserrat,sans-serif;
+   }
+   button{
+    font-family:inherit ;
+   }
+
+   ul{
+    list-style: none;
+   }
+
+   a{
+    text-decoration: none;
+   }
+
+   .pd-y{
+    padding: 120px 0;
+   }
+
+   /* .mg-b{
+    margin-bottom: 10px;
+   } */
+
+   
+   .clear{
+    clear: both;
+   }
+
+   
+   /*  3- section styles*/
+   /* 3.0- header section*/
+   .header-content{
+    /* overflow: hidden; to solve float problem */
+   }
+
+   
+   .header{
+    
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+   }
+
+   .header .logo{
+    width: 40%;
+    
+   }
+   .header .logo img{
+    width: 20%;
+    margin-top: 15px;
+   }
+
+   .header .nav{
+    width: 60%;
+    
+    list-style: none;
+   }
+
+   
+
+   .header .nav > li{/*اولاد الناف فقط*/
+    display: inline-block;
+
+
+   }
+   .header .nav > li > a{/*وضعنا اشارة الاكبر من اجل ان تنطبق هذه المواصفات على اولاد الناف فقط*/
+    font-size: 15px;
+    color: white;
+    display: block;/*حتى استطيع ان اعمل لها بادينغ من كل الجهات*/
+    padding: 30px 13px;/*هنا نوسع مساحة ال a  حتى تكون كل المساحة يمكن ان اضغط عليها بالماوس*/
+    
+}
+
+.header .nav > li > a:after,
+.header .nav > li > a.active::after{
+    content: "";
+    display: block;
+    height: 3px;
+    background-color:var(--maincolor);
+    transition: width 0.5s;/*من اجل ان لا يظهر الخط تحت الكلمات فورا انما خلال نصف ثانية لذلك كتبناها بالنسبة للعرض*/
+}
+.header .nav > li > a:hover:after{/* يعني عندما اعمل هوفر على الاي اعطيني الافتر واعملي الويدث مية بالمية */
+   width: 100%;
+}
+.header .nav > li > a::after{
+    width: 0;
+}
+.header .nav > li > a.active:after{
+    width: 100%;
+}
+.dropdown{
+    position: relative;
+}
+.dropdown-menu{
+    position: absolute;/*نعطيها بوزيشن ابسلوت من اجل ان تتحرك فقط بالنسبة للاب الريلتيف الخاص بها ولكن اذا كتبنا فقط ابسلوت لن تظهر الكلمة المطلوبة لانها سيتم التعامل معها مثل ال ال آي لذلك نستخدم فكرة السيليكتور من اجل الاشارة الى الاولاد فقط وليس الاحفاد*/
+    background:var(--maincolor);
+    width: 150px;
+    text-align: center;
+    left: -50%;
+    top: 70%;
+    opacity: 0;/*هاتان التعليمتان تعتبر تقنية في الدروب داون حيث تكون القائمة المنسدلة مخفية قبل الضغط على الكلمة وعند الضغط عليها تنعكس حالتهم حسب الهوفر التي سنكتبها*/
+    visibility: hidden;
+    transition: opacity 0.5s,visibility 0.5s;
+}
+.dropdown-menu a{
+    color: white;
+    display: block;
+    padding: 10px;
+    
+}
+.dropdown:hover .dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+/*3.1-home section*/
+
+.home{
+    
+    height: 100vh;/*هنا سيحصل سكرول لاننا واضيعن انو الهوم ياخذ 100% لكن نحن نريد ان يكون الهيدر من ضمن الهوم اي ان يكون فوقه لذلك نعطي الهيدر بوزيشن فيكسد وعرض 100بالمية  فيصبح الهيدر خلف الهوم ولكن ايضا نحن نريد الهيدر ان يظهر فوق الهوم لذلك نعطي الهيدر خاصية الزد اينديكس*/
+    background-image: url(../images/background/background1.webp);
+    background-size: cover;/*لجعل الصورة في الخلفية مناسبة للمقاس عندنا*/
+    position: relative;/* for layer cover*/
+}
+
+
+.home-content{
+    
+    position: absolute;/*هنا نستخدم تقنية الهيرو ايميج من اجل توسيط المحتوى في منتصف الاب*/
+    width: 65%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;/*من اجل توسيط اي نص ضمن هذا العنصر*/
+}
+
+.home .title{
+    color: white;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+
+.home .home-desc{
+    margin: 20px 0;
+    color: white;
+    letter-spacing: 2px;
+    
+}
+.home .btn{
+    min-width: 160px;
+    padding: 15px 0px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;/*من اجل ان يظهر رمز الكف عندما اضع الماوس على الزر*/
+    font-size: 18px;
+}
+.home .btn-start{
+    margin-right: 10px;
+    background-color: white;
+}
+
+.home .btn-learn{
+    background-color: var(--maincolor);
+    color: white;
+}
+
+
+ /*About section*/
+ .about{
+
+ }
+  .about-content{
+    overflow: hidden;
+  }
+
+  .about-item {
+    width: 30%;
+    text-align: center;
+    border: 1px solid #e8e8e8;
+    padding: 50px 20px
+  }
+
+  .about-item.mg{
+    margin: 0 5%;
+  }
+  .about-item .icon{
+    color: var(--maincolor);
+    margin-bottom: 10px;
+  }
+  .about-item-title{
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    transition: color 0.5s;
+  }
+   .about-item-desc{
+    line-height: 1.5;
+    margin-bottom: 10px;
+    color: #888;
+   }
+
+   .about-item-link{
+    color: var(--maincolor);
+    text-transform: capitalize;
+   }
+   .about-item:hover .about-item-title{
+    color: white;
+   }
+
+   /*Portfolio section*/
+
+   .portfolio{
+    background: #f3eeee;
+   }
+   .portfolio-content{
+    overflow: hidden;
+   }
+   .portfolio-item{
+    width: 30%;
+    margin-bottom: 60px;
+    position: relative;
+    padding: 20px;/*من اجل ان نسمح للحواف ان تظهر عند احضار مؤشر الماوس على الصورة*/
+   }
+   .portfolio-item .layer-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.7);
+    opacity: 0;/*في البداية يجب ان يكون صفر وعندما اضع الماوس عليه يظهر*/
+    visibility: hidden;
+    transition: opacity 0.5s;
+   }
+
+   .portfolio-item:hover .layer-content{
+    opacity: 1;
+    visibility: visible;
+   }
+
+   .portfolio-item.mg{
+    margin: 0 5%;
+   }
+   .portfolio-item img{
+    width: 100%;
+   }
+   .portfolio-content .layer-info{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    text-align: center;
+    
+   }
+
+   .layer-content .category{
+    color: var(--maincolor);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    visibility:hidden ;
+    transition: top 0.5s opacity 0.5s;
+    transition-delay: 0.2s;
+   }
+   
+   .layer-content-title{
+    font-size: 20px;
+    color:var(--whitecolor);
+    margin-bottom: 10px;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: top 0.5s ,opacity 0.5s;
+    transition-delay: 0.3s;
+   }
+   
+   .layer-content a{
+    color:var(--whitecolor);
+   }
+
+   .layer-content a i{
+    line-height: 40px;/*من اجل توسيط ايقونات البحث والتعديل في منتصف المربع الازرق*/
+    width: 40px;
+    height: 40px;
+    background-color:var(--maincolor);
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: top 0.5s , opacity 0.5s;
+    transition-delay: 0.3s;
+   }
+
+   .portfolio-item:hover .layer-content .category,
+   .portfolio-item:hover .layer-content-title,
+   .portfolio-item:hover .layer-content a i{
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+   }
+
+
+  
+
+
+   /*services section*/
+
+   .service{
+     
+   }
+
+   .service-item{
+    width: 50%;
+    float: left;
+   }
+
+   .service-item .section-header{
+    text-align: left;
+   }
+
+   .service-item .section-header .line{
+    margin: 0 0 40px 0;
+
+   }
+
+   .service-item-desc{
+    padding-right: 20px;
+    color: var(--graycolor);
+    line-height: 1.4;
+    font-size: 17px;
+    margin-bottom: 20px;
+   }
+
+   .service-list{
+    list-style: none;
+   }
+
+   .service-list li{
+    margin-bottom: 10px;
+    color: var(--graycolor);
+   }
+
+   .service-list li i{
+    border: 1px solid var(--maincolor);
+    color: var(--maincolor);
+    width: 30px;
+    height: 30px;
+    padding: 7px ;
+    
+    border-radius: 50%;
+   }
+
+   .service-item-img img{
+    width: 100%;
+   }
+
+   .service-bollets{
+    list-style: none;
+    text-align: center;
+   }
+
+   .service-bollets li{
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    margin: 10px 5px;
+    border-radius: 50%;
+   }
+
+   .service-bollets li.active{
+    background-color: var(--maincolor);
+   }
+   .service-bollets li:hover{
+    background-color: var(--maincolor);
+   }
+
+   /*number section*/
+
+   .number{
+    background-image: url(../images/background/background2.webp);
+    height: 300px;
+    position: relative;
+    background-size: cover;/*من اجل ان تملأ الصورة الحيز الموجودة فيه*/
+    background-attachment: fixed;/*لكي نشعر ان الصورةثابتة معنا اثناء تحريك الشاشة للاسفل بالماوس*/
+   }
+
+   
+
+   .number-item{
+    width: 25%;
+    float: left;
+    text-align: center;
+    color: var(--whitecolor);
+    
+    
+   }
+
+   .number-item .icon{
+    color: var(--maincolor);
+    margin-bottom: 15px;
+   }
+
+   .number-item-title{
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 15px;
+   }
+   
+   /*prices section*/
+   .price-content{
+    overflow: hidden;
+   }
+   .price-item{
+    width: 30%;
+    float: left;
+    margin-bottom: 20px;
+    border: 1px solid #a8a8aa;
+    padding: 40px 15px;
+    text-align: center;
+    position: relative;
+   }
+
+   
+  
+  .price-item.mg{
+    margin: 0 5%;
+  }
+
+  .price-title{text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 17px;
+    color: var(--graycolor);
+    transition: color 0.5s;
+
+  }
+
+  .price-item-permonth{
+    border: 2px solid var(--maincolor);
+    width: 130px;
+    height: 130px;
+    transition: color 0.5s;
+    padding: 20px 0;
+    border-radius: 50%;
+    margin: 20px auto;
+    
+    
+  }
+  .price-item-permonth .doller{
+    
+    font-size: 50px;
+    
+  }
+  .price-item-permonth .month{
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+
+  .pricing-list{
+    list-style-type: none;
+    line-height: 1.6;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+  }
+  .pricing-list li{
+    color: var(--graycolor);
+    line-height: 1.8;
+  }
+
+  .price-button{
+    background: none;
+    border: 0;
+    display: block;/*جعلناه بلوك حتى نستطيع التحكم بعرضه وارتفاعه*/
+    width: 140px;
+    border: 2px solid #7ba7ff;
+    padding: 10px;
+    margin:15px auto 0 auto ;
+    color: #7ba7ff;
+  }
+  .price-item:hover .price-item-permonth{
+    color: var(--whitecolor);
+
+  }
+
+  .price-item:hover .price-title{
+    color: #7ba7ff;
+  }
+
+
+
+
+   /*testmonial section*/
+
+   .testmonial{
+    position: relative;
+    background-image: url(../images/background/background3.webp);
+    background-attachment: fixed;
+    height: 400px;
+   }
+
+   .testmonial-content{
+    overflow: hidden;
+    padding: 120px 0;
+    width: 80%;
+    margin: auto;
+   }
+
+   .testmonial-item{
+    width: 50%;
+    float: left;
+    color: var(--whitecolor);
+   }
+
+   .testmonial-item .testmonial-toplayer{
+    padding: 10px 2px 40px 100px;/*جعلنا بادينغ اليسار كبير من اجل ان يكون معنا مساحة كافية لجعل الصورة تاخد ابسلوت اقصى اليسار*/
+    position: relative;
+   }
+   .testmonial-item .testmonial-toplayer img{
+    position: absolute;
+    left: 10px;
+    top:10px;
+    border-radius: 50%;
+   }
+
+   .testmonial-item .testmonial-toplayer h3{
+    margin: 5px 0;
+
+   }
+   .testmonial-item .testmonial-toplayer span{
+    color: var(--maincolor);
+   }
+   
+   .testmonial-desc{
+    line-height: 1.5;
+    font-size: 17px;
+   }
+
+   /* team section*/
+
+   
+
+   .team-content{
+    overflow: hidden;
+   }
+
+   .team-item {
+    width: 30%;
+    float: left;
+    background: #a8a8aa;
+    padding: 40px 20px;
+    text-align: center;
+   }
+
+   .team-item.mg{
+    margin: 0 5%;
+   }
+
+   .team-item .team-img{/*يأخذ بوزيشن ريلاتيف من اجل ضبط ايقونات السوشيال الميديا على اليمين*/
+    width: 90%;
+    margin: auto;
+    position: relative;
+    
+   }
+
+   .team-overlay{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background:rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+   }
+
+   .team-overlay a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: #7ba7ff;
+    color: var(--whitecolor);
+    margin-left: auto;
+   
+   }
+
+   .team-overlay a i{
+    line-height: 40px;
+   }
+
+   .team-item .team-img img{/* هذا من اجل اجبار الصورة على اخذ 90 بالمية من حجم الاب وحتى لاتظهر بحجمها الطبيعي */
+    width: 100%;
+    margin: auto;
+   }
+
+   .team-info-title{
+    color: #222;
+    margin: 10px 0;
+    transition: color 0.5s;
+   }
+
+   .team-info-text{
+    color: #888;
+    text-transform: uppercase;
+    font-size: 14px;
+   }
+
+   .team-item:hover .team-overlay{
+    visibility: visible;
+    opacity: 1;
+   }
+
+   .team-item.ttb-effect{
+    z-index: 1;
+   }
+
+   .team-item:hover .team-info-title{
+    color: var(--whitecolor);
+   }
+   .team-item:hover .team-info-text{
+    color:var(--maincolor);
+   }
+
+
+   /*Blog section*/
+
+   .blog{
+    
+   }
+
+   .blog-content{
+    overflow: hidden;
+    
+   }
+   
+
+   .blog-item{
+    width: 30%;
+    float: left;
+    background: var(--whitecolor);
+    
+   }
+
+   .blog-item.mg{
+    margin: 0 5%;
+   }
+   .blog-item-image img{/*عملنا هذه الحركة من اجل ان لا تظهر الصورة على راحتها في الخلفية  وفي نفس الوقت جعلناها تأخذ مية بالمية من حجم الاب ياللي هو بلوغ ايتيم*/
+    width: 100%;
+   }
+
+   .blog-info{
+    padding: 20px;
+   }
+
+   .blog-list{
+    list-style: none;
+    margin: 10px 0;
+   }
+   .blog-list li{
+    display: inline-block;
+    margin: 0 5px;
+   }
+   .blog-list li i{
+    color: var(--maincolor);
+   }
+   .blog-title{
+    font-weight: bold;
+    margin: 20px 0;
+   }
+
+   .blog-desc{
+    color: var(--graycolor);
+    margin-bottom: 10px;
+    line-height: 1.5;
+   }
+   .blog-item-link{
+    color: var(--maincolor);
+   }
+
+  
+   /*contact section*/
+
+   .contact-content{
+    overflow: hidden;
+    
+    
+   }
+
+   .contact-item{
+    width: 30%;
+    float: left;
+    text-align: center;
+    
+    
+   }
+
+   .contact-item.mg{
+    margin:0 5%
+   }
+   .contact-item .contact-list{
+    list-style: none;
+    padding-bottom: 20px;
+   }
+
+   .contact-item .contact-list li{
+    padding: 5px 0;
+   }
+
+   .contact-item .contact-list .list-icon{
+    color: var(--maincolor);
+    padding-bottom: 4px;
+   }
+   .contact-item .contact-list .telephone{
+    color: #888;
+   }
+
+   
+
+   
+
+   .middle-layer .contact-form{
+    width: 70%;
+    margin: 100px auto 100px auto;
+    
+    text-align: center;
+   
+    
+   }
+   
+
+   .contact-form .list-form input{
+    width: 49%;
+    height: 25px;
+    margin: 10px 1px 10px 1px;
+   background: #cfcfcf;
+    border: none;
+    padding-left: 5px;
+   }
+   .contact-form .contact-subject{
+    width: 99%;
+    height: 25px;
+    background: #cfcfcf;
+    border: none;
+    padding-left: 5px;
+    margin-bottom: 10px;
+
+   }
+   .contact-form textarea{
+    width: 99%;
+    height: 75px;
+    background: #cfcfcf;
+    border: none;
+    padding-left: 5px;
+    margin-bottom: 10px;
+   }
+   .contact-form .submit{
+    width: 120px;
+    height: 35px;
+    font-size: 12px;
+    margin-bottom: 10px;
+    background: var(--maincolor);
+    color: var(--whitecolor);
+    border: none;
+   }
+
+   .contact-form .list-form input:hover{
+    border:1px solid var(--maincolor)
+   }
+
+   
+
+   
+   
+
+
+   /*footer section*/
+
+   .footer{
+    background: #1c1d21;
+    text-align: center;
+    padding: 60px 0;
+   }
+   .footer-links{
+    list-style: none;
+    margin: 20px 0;
+   }
+
+   .footer-links li{
+    display: inline-block;
+   }
+   .footer-links li a{
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: var(--maincolor);
+    color:var(--whitecolor);
+    margin: 0 5px;
+    border-radius: 50%;
+   }
+
+   .footer-links li a i{
+    line-height: 50px;
+   }
+
+   .footer .copyright{
+    color: var(--graycolor);
+    font-size: 15px;
+    text-transform: uppercase;
+   }

@@ -1,0 +1,519 @@
+.overlay{
+    position: absolute;
+    width: 100%; /*لكي ياخد كامل عرض الاب*/
+    height: 100%;/*لكي ياخد كامل ارتفاع الاب*/
+    top: 0;
+    left: 0;
+    background-color:rgba(0, 0, 0, 0.7);
+}
+
+.hover-opacity{
+    transition: opacity 0.5s;
+}
+    
+.hover-opacity:hover{
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+
+    
+
+/* 2- general styles*/
+
+.section-header{
+    text-align: left;
+    padding-top: 25px;
+   }
+   .section-header .section-title{
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+   }
+
+   .section-header .line{
+    display: block;
+    height: 3px;
+    width: 50px;
+    background-color:var(--maincolor);
+    margin-bottom: 15px;
+   }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;/*css3*/
+   }
+
+   .container{width: 80%;
+                margin: auto;}
+
+   /* font family*/
+   body{
+    font-family: 'Varela Round', sans-serif;
+   }
+
+   :root{
+    --maincolor:#6195ff;
+    --graycolor:#999;
+    
+    --whitecolor:#fff;
+   }
+
+   h1,h2,h3,h4,h5,h6{
+    font-family: montserrat,sans-serif;
+   }
+   button{
+    font-family:inherit ;
+   }
+
+   ul{
+    list-style: none;
+   }
+
+   a{
+    text-decoration: none;
+   }
+
+   .pd-y{
+    padding: 120px 0;
+   }
+
+   /* .mg-b{
+    margin-bottom: 10px;
+   } */
+
+   
+   .clear{
+    clear: both;
+   }
+
+   /*header section*/
+
+.header-content{
+    /* overflow: hidden; to solve float problem */
+   }
+
+   
+   .header{
+    
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+   }
+
+   .header .logo{
+    width: 40%;
+    
+   }
+   .header .logo img{
+    width: 20%;
+    margin-top: 15px;
+    float: left;
+   }
+
+   .header .nav{
+    width: 60%;
+    
+    list-style: none;
+   }
+
+   
+
+   .header .nav > li{/*اولاد الناف فقط*/
+    display: inline-block;
+    
+
+   }
+   .header .nav > li > a{/*وضعنا اشارة الاكبر من اجل ان تنطبق هذه المواصفات على اولاد الناف فقط*/
+    font-size: 15px;
+    color: white;
+    display: block;/*حتى استطيع ان اعمل لها بادينغ من كل الجهات*/
+    padding: 30px 13px;/*هنا نوسع مساحة ال a  حتى تكون كل المساحة يمكن ان اضغط عليها بالماوس*/
+    
+}
+
+.header .nav > li > a:after,
+.header .nav > li > a.active::after{
+    content: "";
+    display: block;
+    height: 3px;
+    background-color:var(--maincolor);
+    transition: width 0.5s;/*من اجل ان لا يظهر الخط تحت الكلمات فورا انما خلال نصف ثانية لذلك كتبناها بالنسبة للعرض*/
+}
+.header .nav > li > a:hover:after{/* يعني عندما اعمل هوفر على الاي اعطيني الافتر واعملي الويدث مية بالمية */
+   width: 100%;
+}
+.header .nav > li > a::after{
+    width: 0;
+}
+.header .nav > li > a.active:after{
+    width: 100%;
+}
+.dropdown{
+    position: relative;
+}
+.dropdown-menu{
+    position: absolute;/*نعطيها بوزيشن ابسلوت من اجل ان تتحرك فقط بالنسبة للاب الريلتيف الخاص بها ولكن اذا كتبنا فقط ابسلوت لن تظهر الكلمة المطلوبة لانها سيتم التعامل معها مثل ال ال آي لذلك نستخدم فكرة السيليكتور من اجل الاشارة الى الاولاد فقط وليس الاحفاد*/
+    background:var(--maincolor);
+    width: 150px;
+    text-align: center;
+    left: -50%;
+    top: 70%;
+    opacity: 0;/*هاتان التعليمتان تعتبر تقنية في الدروب داون حيث تكون القائمة المنسدلة مخفية قبل الضغط على الكلمة وعند الضغط عليها تنعكس حالتهم حسب الهوفر التي سنكتبها*/
+    visibility: hidden;
+    transition: opacity 0.5s,visibility 0.5s;
+}
+.dropdown-menu a{
+    color: white;
+    display: block;
+    padding: 10px;
+    
+}
+.dropdown:hover .dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+}
+
+/*blog page breadcrumb*/
+
+.blog-page-content{
+    width: 100%;
+    overflow: hidden;
+    
+}
+.blog-page-breadcrumb{
+    width: 100%;
+    padding: 35px 16px;
+    
+    height: 100px;
+  
+  background-color: #eee;
+}
+
+.blog-page-breadcrumb h2{
+    text-transform: capitalize;
+    width: 60%;
+    font-weight: bold;
+    float: left;
+    font-size: 30px;
+    padding-left: 150px;
+    
+}
+
+.blog-page-breadcrumb .blog-page-list{
+    text-transform: capitalize;
+    float: right;
+    width: 35%;
+}
+.blog-page-breadcrumb .blog-page-list li {
+    display: inline;
+    font-size: 18px;
+    color: #333;
+}
+.blog-page-breadcrumb .blog-page-list li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0";
+  }
+  .blog-page-breadcrumb .blog-page-list li a{
+    color: var(--maincolor);
+  }
+
+  .blog-page-breadcrumb .blog-page-list li a:hover {
+    color: #01447e;
+    text-decoration: underline;
+  }
+
+  .blog-page-item{
+    width: 100%;
+    margin: 0 2%;
+  }
+
+  .blog-page-item-left{
+    width: 80%;
+    float: left;
+    
+    
+  }
+  .blog-page-item-left .left-image{
+    padding-bottom: 10px;
+    width: 95%; 
+    height: 350px;
+    
+  }
+  
+   
+   
+   
+   
+   .blog-list{
+    list-style: none;
+    margin: 13px 0;
+    font-size: 14px;
+    text-transform: capitalize;
+   }
+   .blog-list .list-mg{
+    margin: 0 1%;
+   }
+   .blog-list li{
+    display: inline-block;
+    
+   }
+   .blog-list li i{
+    color: var(--maincolor);
+   }
+   .blog-page-title{
+    padding: 10px 0;
+
+   }
+   
+   
+   .blog-page-desc{
+    color: var(--graycolor);
+    margin-bottom: 10px;
+    line-height: 1.5;
+    width: 95%;
+    padding-bottom: 20px;
+   }
+   .blog-page-item-left .tags{
+    padding-bottom: 40px;
+   }
+   .tags spam{
+    font-weight: bold;
+   }
+   .tags button{
+    border: none;
+    padding: 5px 10px;
+   }
+   .tags button i{
+    color: #6195ff;
+   }
+
+
+   .blog-page-item-left .member{
+    border: 1px solid #eee;
+    width: 95%;
+    height: 160px;
+    
+   }
+
+   .member-item {
+    float: left;
+    width: 20%;
+    
+     }
+
+   .member-item1{
+    width: 80%;
+    float: right;
+    
+   }
+
+   .member .member-item img{
+    padding: 15px 10px;
+    width: 95%;
+   }
+
+   .member-item1 .member-info{
+    padding: 15px 5px 15px 0px;
+    width: 100%;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+   }
+   .member-item1 .member-info ul li{
+    display: inline-block;
+   }
+
+   .member-item1 .member-info ul .ic{
+    float: right;
+    margin: 0 5px;
+    
+   }
+   .member-info ul li a{
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 10%;
+    position: relative;
+    background:var(--maincolor);
+    color:var(--whitecolor);
+   }
+   .member-info ul li a i{
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%,-50%);
+   }
+
+   .member-item1 hr{
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    width: 98%;
+   }
+   .member-item1 .member-desc{
+    color: #888;
+    
+   }
+
+   .comment .section-header .section-title{
+    text-transform: capitalize;
+   }
+
+   .comment-items{
+    overflow: hidden;
+    
+   }
+
+   .comment-item{
+    position: relative;
+   } 
+
+   .comment-item .cover-content{
+    border: 1px solid #eee;
+    float: left;
+    padding: 10px;
+    width: 95%;
+    
+   }
+
+   .comment-item:hover .cover-content{
+    
+    background: #eee;
+    width: 90%;
+    margin-left: 20px;
+    border: 1px solid #6195ff;
+   }
+   .comment-item:hover .joe{
+    color: var(--maincolor);
+   }
+
+   .comment-item .comment-item-left{
+    width: 12%;
+    float: left;
+   }
+   .comment-item .comment-item-left img{
+    width: 88%;
+   }
+   .comment-item .comment-item-right ul li{
+   display: inline-block;
+   text-transform: uppercase;
+   }
+
+   .comment-item .comment-item-right ul li.joe{
+    width: 15%;
+    font-size: 17px;
+    font-weight: bold;
+   }
+   .comment-item .comment-item-right ul li.ic{
+    width: 60%;
+    font-size: 12px;
+    color: #888;
+   }
+
+   .comment-item .comment-item-right ul li.ic1{
+    
+    font-size: 12px;
+    float: right;
+   }
+   .comment-item .comment-item-right ul .link{
+    color: var(--maincolor);
+   }
+   .comment-desc{
+    color: #888;
+    font-size: 16px;
+    padding-top: 5px;
+   }
+
+  .reply .contact-form .submit{
+    font-size: 16px;
+    text-transform: capitalize;
+  }
+
+
+
+
+  .blog-page-item-right{
+    width: 20%;
+    float: right;
+  }
+  input[type=text] {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #eee;
+    background-image: url(../images/search-icon.png);
+    background-size: 20px 20px;
+    background-position: 180px 10px;
+    background-repeat: no-repeat;
+    padding: 10px 0px 10px 5px;
+}
+
+.blog-page-item-right .notification {
+    overflow: hidden;
+   
+}
+.notification-item{
+    
+}
+
+.notification-item span{
+    float: left;
+}
+.notification-item hr{
+    border:0.5px solid #eee;
+    margin-bottom: 5px;
+}
+
+.notification-item a{
+    float: right;
+    padding-left: 100px;
+    color: var(--maincolor);
+    
+}
+.post-items{
+    overflow: hidden;
+}
+.post-item{
+    width: 50%;
+    float: left;
+    padding-bottom: 15px;
+    margin: 0 -18 0 0;
+}
+.post-items .post-item img{
+    width: 80%;
+    
+}
+
+.post-item p{
+    width: 100%;
+    font-weight: bold;
+    font-size: 11px;
+    padding-bottom: 5px;
+    
+}
+.post-item h6{
+    font-size: 10px;
+    color: var(--maincolor);
+}
+
+.tags-right button{
+    border: none;
+    height: 25px;
+    text-transform: capitalize;
+    padding: 0px 10px;
+    margin: 1px;
+}
+
+
+.footer{margin-top: 60px;
+} 
+
+    
+
+

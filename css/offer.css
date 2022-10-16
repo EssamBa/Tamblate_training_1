@@ -1,0 +1,48 @@
+   /* Offer section*/
+
+   .offer-content{
+    overflow: hidden;
+   }
+   .offer-item{
+    width: 30%;
+    float: left;
+    margin-bottom: 20px;
+    border: 1px solid #a8a8aa;
+    padding: 30px 15px 30px 70px;/*تركنا اليسار كبير من اجل ان توجد مساحة كافية على اليسار للايقونة واعطينا الايقونة بوزيشن ابسلوت من اجل ان تتحرك بالنسبة لهذا الاب*/
+    position: relative;
+    z-index: 1;
+   }
+
+   
+  
+  .offer-item.mg{
+    margin: 0 5%;
+  }
+
+  .offer-item .icon{
+    position: absolute;
+    left: 15px;
+    top: 35px;
+    color: var(--maincolor);
+  }
+
+  .offer-item-title{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    transition: color 0.5s;/*نضيف تعليمة الترانزيشن هنا وليس مع الهوفر لكي ندل على ان هذا هو العنصر الذي سيتأثر عند تطبيق الهوفر*/
+  }
+
+  .offer-item-desc{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    color: var(--graycolor);
+  }
+
+  .offer-item:hover .offer-item-title{
+    color: var(--whitecolor);
+    
+  }
+  
+
+  

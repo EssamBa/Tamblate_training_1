@@ -1,0 +1,79 @@
+.price-content{
+    overflow: hidden;
+   }
+   .price-item{
+    width: 30%;
+    float: left;
+    margin-bottom: 20px;
+    border: 1px solid #a8a8aa;
+    padding: 40px 15px;
+    text-align: center;
+    position: relative;
+   }
+
+   
+  
+  .price-item.mg{
+    margin: 0 5%;
+  }
+
+  .price-title{text-transform: uppercase;
+    margin-bottom: 20px;
+    font-size: 17px;
+    color: var(--graycolor);
+    transition: color 0.5s;
+
+  }
+
+  .price-item-permonth{
+    border: 2px solid var(--maincolor);
+    width: 130px;
+    height: 130px;
+    transition: color 0.5s;
+    padding: 20px 0;
+    border-radius: 50%;
+    margin: 20px auto;
+    
+    
+  }
+  .price-item-permonth .doller{
+    
+    font-size: 50px;
+    
+  }
+  .price-item-permonth .month{
+    text-transform: uppercase;
+    font-size: 15px;
+  }
+
+  .pricing-list{
+    list-style-type: none;
+    line-height: 1.6;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+  }
+  .pricing-list li{
+    color: var(--graycolor);
+    line-height: 1.8;
+  }
+
+  .price-button{
+    background: none;
+    border: 0;
+    display: block;/*جعلناه بلوك حتى نستطيع التحكم بعرضه وارتفاعه*/
+    width: 140px;
+    border: 2px solid #7ba7ff;
+    padding: 10px;
+    margin:15px auto 0 auto ;
+    color: #7ba7ff;
+  }
+  .price-item:hover .price-item-permonth{
+    color: var(--whitecolor);
+
+  }
+
+  .price-item:hover .price-title{
+    color: #7ba7ff;
+  }
+
+

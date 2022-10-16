@@ -1,0 +1,48 @@
+.home{
+    
+    height: 100vh;/*هنا سيحصل سكرول لاننا واضيعن انو الهوم ياخذ 100% لكن نحن نريد ان يكون الهيدر من ضمن الهوم اي ان يكون فوقه لذلك نعطي الهيدر بوزيشن فيكسد وعرض 100بالمية  فيصبح الهيدر خلف الهوم ولكن ايضا نحن نريد الهيدر ان يظهر فوق الهوم لذلك نعطي الهيدر خاصية الزد اينديكس*/
+    background-image: url(../images/background/background1.webp);
+    background-size: cover;/*لجعل الصورة في الخلفية مناسبة للمقاس عندنا*/
+    position: relative;/* for layer cover*/
+}
+
+
+.home-content{
+    
+    position: absolute;/*هنا نستخدم تقنية الهيرو ايميج من اجل توسيط المحتوى في منتصف الاب*/
+    width: 65%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;/*من اجل توسيط اي نص ضمن هذا العنصر*/
+}
+
+.home .title{
+    color: white;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+}
+
+.home .home-desc{
+    margin: 20px 0;
+    color: white;
+    letter-spacing: 2px;
+    
+}
+.home .btn{
+    min-width: 160px;
+    padding: 15px 0px;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;/*من اجل ان يظهر رمز الكف عندما اضع الماوس على الزر*/
+    font-size: 18px;
+}
+.home .btn-start{
+    margin-right: 10px;
+    background-color: white;
+}
+
+.home .btn-learn{
+    background-color: var(--maincolor);
+    color: white;
+}

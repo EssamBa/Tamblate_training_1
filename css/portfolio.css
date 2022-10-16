@@ -1,0 +1,96 @@
+.portfolio{
+    background: #f3eeee;
+   }
+   .portfolio-content{
+    overflow: hidden;
+   }
+   .portfolio-item{
+    width: 30%;
+    margin-bottom: 60px;
+    position: relative;
+    padding: 20px;/*من اجل ان نسمح للحواف ان تظهر عند احضار مؤشر الماوس على الصورة*/
+   }
+   .portfolio-item .layer-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.7);
+    opacity: 0;/*في البداية يجب ان يكون صفر وعندما اضع الماوس عليه يظهر*/
+    visibility: hidden;
+    transition: opacity 0.5s;
+   }
+
+   .portfolio-item:hover .layer-content{
+    opacity: 1;
+    visibility: visible;
+   }
+
+   .portfolio-item.mg{
+    margin: 0 5%;
+   }
+   .portfolio-item img{
+    width: 100%;
+   }
+   .portfolio-content .layer-info{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 60%;
+    text-align: center;
+    
+   }
+
+   .layer-content .category{
+    color: var(--maincolor);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 5px;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    visibility:hidden ;
+    transition: top 0.5s opacity 0.5s;
+    transition-delay: 0.2s;
+   }
+   
+   .layer-content-title{
+    font-size: 20px;
+    color:var(--whitecolor);
+    margin-bottom: 10px;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: top 0.5s ,opacity 0.5s;
+    transition-delay: 0.3s;
+   }
+   
+   .layer-content a{
+    color:var(--whitecolor);
+   }
+
+   .layer-content a i{
+    line-height: 40px;/*من اجل توسيط ايقونات البحث والتعديل في منتصف المربع الازرق*/
+    width: 40px;
+    height: 40px;
+    background-color:var(--maincolor);
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: top 0.5s , opacity 0.5s;
+    transition-delay: 0.3s;
+   }
+
+   .portfolio-item:hover .layer-content .category,
+   .portfolio-item:hover .layer-content-title,
+   .portfolio-item:hover .layer-content a i{
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+   }
+

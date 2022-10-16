@@ -1,0 +1,17 @@
+.section-header{
+    text-align: center;
+   }
+   .section-header .section-title{
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+
+   }
+
+   .section-header .line{
+    display: block;
+    height: 5px;
+    width: 60px;
+    background-color:var(--maincolor);
+    margin: 0 auto 70px auto;
+   }
